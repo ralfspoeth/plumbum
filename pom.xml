@@ -5,7 +5,7 @@
 
     <groupId>io.github.ralfspoeth</groupId>
     <artifactId>plumbum</artifactId>
-    <version>1.4.7-SNAPSHOT</version>
+    <version>1.4.6-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>plumbum</name>
