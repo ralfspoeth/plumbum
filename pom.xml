@@ -5,7 +5,7 @@
 
     <groupId>io.github.ralfspoeth</groupId>
     <artifactId>plumbum</artifactId>
-    <version>1.4.8-SNAPSHOT</version>
+    <version>1.4.8</version>
     <packaging>pom</packaging>
 
     <name>plumbum</name>
@@ -14,7 +14,7 @@
     <scm>
         <url>scm:git:https://github.com/ralfspoeth/plumbum</url>
         <developerConnection>scm:git:https://github.com/ralfspoeth/plumbum.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>plumbum-1.4.8</tag>
     </scm>
     <licenses>
         <license>
