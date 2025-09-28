@@ -189,6 +189,12 @@
                 <version>5.13.1</version>
                 <scope>test</scope>
             </dependency>
+            <!-- JSpecify -->
+            <dependency>
+                <groupId>org.jspecify</groupId>
+                <artifactId>jspecify</artifactId>
+                <version>1.0.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
