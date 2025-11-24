@@ -1,4 +1,4 @@
-# Εις έαυτόν
+# ´Εις έαυτόν
 
 I am using this module in order to 
 make my life publishing artefacts to maven central
@@ -9,7 +9,7 @@ After making `plumbum` the parent of my library
     <parent>
         <groupId>io.github.ralfspoeth</groupId>
         <artifactId>plumbum</artifactId>
-        <version>1.4.2</version>
+        <version>1.4.14</version>
     </parent>
 
 I just need to add these plugins In my `pom.xml`
