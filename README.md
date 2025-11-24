@@ -4,6 +4,9 @@ I am using this module in order to
 make my life publishing artefacts to maven central
 easier. I'll keep the dependencies and plugins up to date.
 
+Beginning with version 1.5.0 we'll include `jspecify` annotations
+and JUnit version 6.
+
 After making `plumbum` the parent of my library 
 
     <parent>
