@@ -1,8 +1,12 @@
 # ´Εις έαυτόν
 
 I am using this module in order to 
-make my life publishing artefacts to maven central
+make publishing artefacts to maven central
 easier. I'll keep the dependencies and plugins up to date.
+
+Beginning with version 2.0.0 we'll include `jspecify` annotations
+but no longer `JUnit` dependencies since these may easily 
+be imported.
 
 After making `plumbum` the parent of my library 
 
