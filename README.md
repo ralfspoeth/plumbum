@@ -13,7 +13,7 @@ After making `plumbum` the parent of my library
     <parent>
         <groupId>io.github.ralfspoeth</groupId>
         <artifactId>plumbum</artifactId>
-        <version>2.0.2</version>
+        <version>2.0.5</version>
     </parent>
 
 I'll have to provide the name of my project by adding the 
