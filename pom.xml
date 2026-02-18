@@ -14,7 +14,7 @@
 
     <name>${plumbum.name}</name>
     <description>Basis for publishing artefacts</description>
-    <url>http://github.com/ralfspoeth/${plumbum.name}</url>
+    <url>https://github.com/ralfspoeth/${plumbum.name}</url>
     <scm>
         <url>scm:git:https://github.com/ralfspoeth/${plumbum.name}</url>
         <developerConnection>scm:git:https://github.com/ralfspoeth/${plumbum.name}.git</developerConnection>
