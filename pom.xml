@@ -5,14 +5,16 @@
 
     <properties>
         <plumbum.name>plumbum</plumbum.name>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.plugin.validation>VERBOSE</maven.plugin.validation>
     </properties>
 
     <groupId>io.github.ralfspoeth</groupId>
-    <artifactId>${plumbum.name}</artifactId>
+    <artifactId>plumbum</artifactId>
     <version>2.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>${plumbum.name}</name>
+    <name>Plumbum - the putty that keeps things together</name>
     <description>Basis for publishing artefacts</description>
     <url>https://github.com/ralfspoeth/${plumbum.name}</url>
     <scm>
