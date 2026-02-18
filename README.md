@@ -13,10 +13,24 @@ After making `plumbum` the parent of my library
     <parent>
         <groupId>io.github.ralfspoeth</groupId>
         <artifactId>plumbum</artifactId>
-        <version>2.0.0</version>
+        <version>2.0.1</version>
     </parent>
 
-I just need to add these plugins In my `pom.xml`
+I'll have to provide the name of my project by adding the 
+`plumbum.name` property:
+
+    <!-- provide my project name -->
+    <properties>
+        <plumbum.name>my</project.name>
+    </properties>
+
+and a description, as in 
+
+    <description>
+        Oh what MY does to the greater good of society
+    </description>
+
+I then need to add these plugins in my `pom.xml`
 
     <!-- sonatype publishing -->
     <plugin>
