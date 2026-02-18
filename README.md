@@ -8,6 +8,8 @@ Beginning with version 2.0.0 we'll include `jspecify` annotations
 but no longer `JUnit` dependencies since these may easily 
 be imported.
 
+There is a [Sample POM](sample-pom.xml)
+
 After making `plumbum` the parent of my library 
 
     <parent>
