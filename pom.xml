@@ -11,7 +11,7 @@
 
     <groupId>io.github.ralfspoeth</groupId>
     <artifactId>plumbum</artifactId>
-    <version>2.0.5</version>
+    <version>2.0.6-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Plumbum - the putty that keeps things together</name>
@@ -21,7 +21,7 @@
     <scm>
         <url>scm:git:https://github.com/ralfspoeth/${plumbum.name}</url>
         <developerConnection>scm:git:https://github.com/ralfspoeth/${plumbum.name}.git</developerConnection>
-        <tag>plumbum-2.0.5</tag>
+        <tag>HEAD</tag>
     </scm>
     <licenses>
         <license>
