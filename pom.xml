@@ -16,12 +16,12 @@
 
     <name>Plumbum - the putty that keeps things together</name>
     <description>Basis for publishing artefacts</description>
-    <url>https://github.com/ralfspoeth/${plumbum.name}</url>
+    <url>https://github.com/ralfspoeth/</url>
 
     <scm>
         <url>scm:git:https://github.com/ralfspoeth/${plumbum.name}</url>
         <developerConnection>scm:git:https://github.com/ralfspoeth/${plumbum.name}.git</developerConnection>
-        <tag>plumbum-2.0.4</tag>
+        <tag>HEAD</tag>
     </scm>
     <licenses>
         <license>
