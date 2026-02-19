@@ -15,18 +15,22 @@ After making `plumbum` the parent of my library
     <parent>
         <groupId>io.github.ralfspoeth</groupId>
         <artifactId>plumbum</artifactId>
-        <version>2.0.5</version>
+        <version>2.0.6</version>
     </parent>
 
-I'll have to provide the name of my project by adding the 
-`plumbum.name` property:
+    <artifactId>my</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
 
-    <!-- provide my project name -->
-    <properties>
-        <plumbum.name>my</project.name>
-    </properties>
+The `scm` node is necessary as well:
 
-and a description, as in 
+    <scm>
+        <url>scm:git:https://github.com/ralfspoeth/my</url>
+        <developerConnection>scm:git:https://github.com/ralfspoeth/my.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+
+I'll have to provide the name and a description, as in 
     
     <name>Brief name</name>
     <description>
