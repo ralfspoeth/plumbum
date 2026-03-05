@@ -15,7 +15,7 @@ After making `plumbum` the parent of my library
     <parent>
         <groupId>io.github.ralfspoeth</groupId>
         <artifactId>plumbum</artifactId>
-        <version>2.0.6</version>
+        <version>2.0.7</version>
     </parent>
 
     <artifactId>my</artifactId>
@@ -36,6 +36,7 @@ I'll have to provide the name and a description, as in
     <description>
         Oh what MY does to the greater good of society
     </description>
+    <url>https://github.com/ralfspoeth/my</url>
 
 I then need to add these plugins in my `pom.xml`
 
