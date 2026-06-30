@@ -15,7 +15,7 @@ After making `plumbum` the parent of my library
     <parent>
         <groupId>io.github.ralfspoeth</groupId>
         <artifactId>plumbum</artifactId>
-        <version>2.0.7</version>
+        <version>2.0.8</version>
     </parent>
 
     <artifactId>my</artifactId>
