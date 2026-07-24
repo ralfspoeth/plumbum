@@ -1,21 +1,19 @@
 # ´Εις έαυτόν
 
-I am using this module in order to 
-make publishing artefacts to maven central
-easier. I'll keep the dependencies and plugins up to date.
+I am using this module in order to make publishing artefacts to maven central easier. I'll keep the dependencies and
+plugins up to date.
 
-Beginning with version 2.0.0 we'll include `jspecify` annotations
-but no longer `JUnit` dependencies since these may easily 
-be imported.
+Beginning with version 2.0.0 we'll include `jspecify` annotations but no longer `JUnit` dependencies since these may
+easily be imported.
 
 There is a [Sample POM](sample-pom.xml)
 
-After making `plumbum` the parent of my library 
+After making `plumbum` the parent of my library
 
     <parent>
         <groupId>io.github.ralfspoeth</groupId>
         <artifactId>plumbum</artifactId>
-        <version>2.0.8</version>
+        <version>2.1.0</version>
     </parent>
 
     <artifactId>my</artifactId>
@@ -29,9 +27,8 @@ The `scm` node is necessary as well:
         <tag>HEAD</tag>
     </scm>
 
+I'll have to provide the name and a description, as in
 
-I'll have to provide the name and a description, as in 
-    
     <name>Brief name</name>
     <description>
         Oh what MY does to the greater good of society
@@ -40,10 +37,10 @@ I'll have to provide the name and a description, as in
 
 I then need to add these plugins in my `pom.xml`
 
-    <!-- sonatype publishing -->
+    <!-- sonatype publishing (Central Portal) -->
     <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
     </plugin>
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -71,7 +68,7 @@ I then need to add these plugins in my `pom.xml`
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
     </plugin>
-    
+
 Furthermore, I may simply add these dependencies:
 
     <!-- jspecify -->
@@ -81,3 +78,26 @@ Furthermore, I may simply add these dependencies:
     </dependency>
 
 That's all there is.
+
+## Publishing to the Central Portal
+
+Since version 2.1.0 publishing goes through the
+[`central-publishing-maven-plugin`](https://central.sonatype.org/publish/publish-portal-maven/)
+instead of the retired OSSRH / `nexus-staging` route. `mvn deploy` builds a bundle, uploads it to the Central Portal,
+and - because `autoPublish` is on - publishes it once validation passes.
+
+This needs a Central Portal user token in `settings.xml` under the server id
+`central` (not the old `ossrh`):
+
+    <settings>
+      <servers>
+        <server>
+          <id>central</id>
+          <username><!-- portal token username --></username>
+          <password><!-- portal token password --></password>
+        </server>
+      </servers>
+    </settings>
+
+Generate the token at https://central.sonatype.com/account. GPG signing, javadoc and sources jars are still required and
+are configured by this parent.
