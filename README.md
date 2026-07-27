@@ -100,21 +100,26 @@ are configured by this parent.
 
 ### Signing
 
-Since 2.1.1 the gpg plugin lives in a `release-sign-artifacts` profile rather than being bound unconditionally. It
+Since 3.0.0 the gpg plugin lives in a `release-sign-artifacts` profile rather than being bound unconditionally. It
 binds to the `verify` phase, so an unconditional binding meant that every `mvn verify` - every local build that ran
 the tests - stopped to ask for the signing passphrase.
 
-The profile activates on the `performRelease` property, which `maven-release-plugin` sets when it forks the deploy:
+The release plugin activates that profile for the deploy it forks, through its `releaseProfiles` setting:
 
     mvn release:prepare release:perform     # signs
     mvn verify                              # does not, and does not ask
 
-Publishing without the release plugin therefore has to say so:
+Do not reach for `-DperformRelease=true` instead: `useReleaseProfile` defaults to false since release plugin 3.0.0,
+so `perform` no longer sets that property, and a profile relying on it would never activate. Publishing without the
+release plugin names the profile:
 
-    mvn deploy -DperformRelease=true
+    mvn deploy -Prelease-sign-artifacts
 
 An unsigned deployment is rejected by the Central Portal, so forgetting it fails loudly at upload rather than
 publishing something unsigned.
+
+A child project must not list `maven-gpg-plugin` in its own `<build><plugins>`: that binds it unconditionally again
+and the prompt returns.
 
 ### Integration tests
 
