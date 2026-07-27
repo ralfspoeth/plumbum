@@ -31,12 +31,6 @@
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
             </plugin>
-            <!--
-                No maven-gpg-plugin here: the parent activates it through the
-                release-sign-artifacts profile. Listing it here would bind it to
-                every build again, which is what makes `mvn verify` stop and ask
-                for the signing passphrase.
-            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
