@@ -13,7 +13,7 @@ After making `plumbum` the parent of my library
     <parent>
         <groupId>io.github.ralfspoeth</groupId>
         <artifactId>plumbum</artifactId>
-        <version>2.1.0</version>
+        <version>3.0.0</version>
     </parent>
 
     <artifactId>my</artifactId>
@@ -41,10 +41,6 @@ I then need to add these plugins in my `pom.xml`
     <plugin>
         <groupId>org.sonatype.central</groupId>
         <artifactId>central-publishing-maven-plugin</artifactId>
-    </plugin>
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
     </plugin>
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -101,3 +97,34 @@ This needs a Central Portal user token in `settings.xml` under the server id
 
 Generate the token at https://central.sonatype.com/account. GPG signing, javadoc and sources jars are still required and
 are configured by this parent.
+
+### Signing
+
+Since 2.1.1 the gpg plugin lives in a `release-sign-artifacts` profile rather than being bound unconditionally. It
+binds to the `verify` phase, so an unconditional binding meant that every `mvn verify` - every local build that ran
+the tests - stopped to ask for the signing passphrase.
+
+The profile activates on the `performRelease` property, which `maven-release-plugin` sets when it forks the deploy:
+
+    mvn release:prepare release:perform     # signs
+    mvn verify                              # does not, and does not ask
+
+Publishing without the release plugin therefore has to say so:
+
+    mvn deploy -DperformRelease=true
+
+An unsigned deployment is rejected by the Central Portal, so forgetting it fails loudly at upload rather than
+publishing something unsigned.
+
+### Integration tests
+
+`maven-failsafe-plugin` is managed here but not activated: surefire matches `*Test`, not `*IT`, so a module whose
+integration tests are named `*IT` needs failsafe or they compile and are silently never run. A module that wants them
+adds the plugin with no version and no configuration:
+
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+    </plugin>
+
+and they run at `integration-test`, that is under `mvn verify` but not under `mvn test`.
