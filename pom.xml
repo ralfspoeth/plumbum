@@ -158,13 +158,6 @@
                     <artifactId>maven-release-plugin</artifactId>
                     <version>3.3.1</version>
                     <configuration>
-                        <!--
-                            Activates the signing profile for the deploy that
-                            perform forks. Since 3.0.0 useReleaseProfile defaults
-                            to false, so perform no longer sets performRelease -
-                            without this a release would upload unsigned
-                            artifacts and be rejected.
-                        -->
                         <releaseProfiles>release-sign-artifacts</releaseProfiles>
                     </configuration>
                 </plugin>
