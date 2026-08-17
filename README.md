@@ -13,7 +13,7 @@ After making `plumbum` the parent of my library
     <parent>
         <groupId>io.github.ralfspoeth</groupId>
         <artifactId>plumbum</artifactId>
-        <version>3.0.2</version>
+        <version>3.0.3</version>
     </parent>
 
     <artifactId>my</artifactId>
@@ -65,7 +65,7 @@ I then need to add these plugins in my `pom.xml`
         <artifactId>maven-surefire-plugin</artifactId>
     </plugin>
 
-Furthermore, I may simply add these dependencies:
+Furthermore, I may simply add this dependency:
 
     <!-- jspecify -->
     <dependency>
