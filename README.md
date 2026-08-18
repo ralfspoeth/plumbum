@@ -37,11 +37,7 @@ I'll have to provide the name and a description, as in
 
 I then need to add these plugins in my `pom.xml`
 
-    <!-- sonatype publishing (Central Portal) -->
-    <plugin>
-        <groupId>org.sonatype.central</groupId>
-        <artifactId>central-publishing-maven-plugin</artifactId>
-    </plugin>
+    <!-- release plugin -->
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
