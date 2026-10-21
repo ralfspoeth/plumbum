@@ -13,7 +13,7 @@ After making `plumbum` the parent of my library
     <parent>
         <groupId>io.github.ralfspoeth</groupId>
         <artifactId>plumbum</artifactId>
-        <version>3.0.3</version>
+        <version>3.0.4</version>
     </parent>
 
     <artifactId>my</artifactId>
@@ -116,6 +116,24 @@ publishing something unsigned.
 
 A child project must not list `maven-gpg-plugin` in its own `<build><plugins>`: that binds it unconditionally again
 and the prompt returns.
+
+### Maven 3.10 needs plugin 0.12.0
+
+Maven 3.10.0 writes `maven-metadata-local.xml` and `_remote.repositories` into the staging repository.
+`central-publishing-maven-plugin` up to 0.11.0 removed only `maven-metadata-central-staging.xml` before zipping, so
+those files ended up in the bundle and the Portal refused it:
+
+    Bundle has content that does NOT have a .pom file: io/github/ralfspoeth/<artifact>
+
+Nothing in this parent or in the child project needs to change for that to happen - upgrading Maven is enough, which
+makes it a confusing failure: the release that worked last month fails with an untouched pom. Version 0.12.0 strips
+both files, and is pinned here.
+
+A correct bundle contains the version directory and nothing else: four artifacts - pom, jar, sources, javadoc - each
+with a `.asc` signature and md5/sha1/sha256/sha512 checksums, so 24 entries. Worth a look whenever a deployment is
+rejected, since the plugin leaves the zip behind:
+
+    unzip -l target/checkout/target/central-publishing/central-bundle.zip
 
 ### Integration tests
 
