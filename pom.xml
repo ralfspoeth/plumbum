@@ -182,6 +182,10 @@
                     <version>2.25.1</version>
                     <configuration>
                         <detail>true</detail>
+                        <!-- report final releases only: skip alpha, beta,
+                         milestone, release candidate, preview, and
+                         early-access versions, e.g. 6.1.0-M1, 2.0-RC2 -->
+                        <ignoredVersions>(?i).+[-.](alpha|beta|m|rc|cr|milestone|preview|ea)[-.]?\d*</ignoredVersions>
                     </configuration>
                 </plugin>
                 <plugin>

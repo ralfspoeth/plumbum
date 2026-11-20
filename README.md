@@ -13,7 +13,7 @@ After making `plumbum` the parent of my library
     <parent>
         <groupId>io.github.ralfspoeth</groupId>
         <artifactId>plumbum</artifactId>
-        <version>3.0.5</version>
+        <version>3.0.6</version>
     </parent>
 
     <artifactId>my</artifactId>
@@ -147,3 +147,15 @@ adds the plugin with no version and no configuration:
     </plugin>
 
 and they run at `integration-test`, that is under `mvn verify` but not under `mvn test`.
+
+### Update reports list final releases only
+
+Since 3.0.6 the `versions-maven-plugin` ignores pre-release versions. Before that,
+
+    mvn versions:display-dependency-updates
+
+listed every newer version on Central, so a dependency such as JUnit was reported as outdated whenever a milestone like
+`6.1.0-M1` appeared. The parent now configures `ignoredVersions` with a pattern that skips alpha, beta, milestone,
+release candidate, preview, and early-access versions (`-M1`, `-RC2`, `-alpha-1`, `-beta3`, `-ea`, ...), while
+releases with other qualifiers such as `33.4.0-jre` or `1.0.0-Final` are still reported. The filter applies to
+`display-dependency-updates`, `display-plugin-updates`, and `display-parent-updates` alike.
